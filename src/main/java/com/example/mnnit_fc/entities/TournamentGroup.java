@@ -6,7 +6,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "tournament_groups")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class TournamentGroup {

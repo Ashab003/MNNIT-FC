@@ -5,7 +5,8 @@ import lombok.*;
 
 @Entity
 @Table(name = "player_profiles")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class PlayerProfile {

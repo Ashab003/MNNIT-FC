@@ -5,7 +5,8 @@ import lombok.*;
 
 @Entity
 @Table(name = "team_rosters")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class TeamRoster {

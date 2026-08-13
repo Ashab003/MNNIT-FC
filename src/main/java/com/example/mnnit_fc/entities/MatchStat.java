@@ -5,7 +5,8 @@ import lombok.*;
 
 @Entity
 @Table(name = "match_stats")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class MatchStat {

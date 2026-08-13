@@ -5,7 +5,8 @@ import lombok.*;
 
 @Entity
 @Table(name = "tournament_awards")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class TournamentAward {

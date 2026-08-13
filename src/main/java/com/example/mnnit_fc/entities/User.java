@@ -6,7 +6,8 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "users")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
@@ -23,10 +24,11 @@ public class User {
 
     @Column(name = "phone_number")
     private String phoneNumber;
-    
+
     @Column(nullable = false)
     private String password; // Encrypted BCrypt hash for Spring Security
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private String role; // e.g., 'ROLE_ADMIN', 'ROLE_PLAYER'
 
@@ -38,4 +40,7 @@ public class User {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private PlayerProfile playerProfile;
+
+    @Column(name = "is_approved", nullable = false)
+    private Boolean isApproved = false; // Defaults to false for new signups
 }
