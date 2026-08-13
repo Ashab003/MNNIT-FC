@@ -1,8 +1,7 @@
-package com.example.mnnit_fc.repositories;
+package com.example.mnnit_fc.repository;
 
-import com.example.mnnit_fc.entities.Team;
+import com.example.mnnit_fc.entity.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 
 public interface TeamRepository extends JpaRepository<Team, Long> {
 }

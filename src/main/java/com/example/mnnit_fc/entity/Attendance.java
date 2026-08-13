@@ -1,4 +1,4 @@
-package com.example.mnnit_fc.entities;
+package com.example.mnnit_fc.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

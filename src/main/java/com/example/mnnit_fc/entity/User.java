@@ -1,5 +1,6 @@
-package com.example.mnnit_fc.entities;
+package com.example.mnnit_fc.entity;
 
+import com.example.mnnit_fc.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -30,7 +31,7 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String role; // e.g., 'ROLE_ADMIN', 'ROLE_PLAYER'
+    private Role role;
 
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
