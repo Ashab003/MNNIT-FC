@@ -1,8 +1,6 @@
 package com.example.mnnit_fc.controller;
 
-import com.example.mnnit_fc.controller.dto.FullNameResponseDTO;
-import com.example.mnnit_fc.controller.dto.LoginRequestDTO;
-import com.example.mnnit_fc.controller.dto.LoginResponseDTO;
+import com.example.mnnit_fc.controller.dto.*;
 import com.example.mnnit_fc.service.AuthenticationService;
 import com.example.mnnit_fc.service.UserService;
 import jakarta.validation.Valid;
@@ -24,12 +22,25 @@ public class AuthController {
         return ResponseEntity.ok(authenticationService.login(loginRequestDTO));
     }
 
+    @PostMapping("/register")
+    public ResponseEntity<RegisterUserResponseDTO> register(
+            @Valid @RequestBody RegisterUserRequestDTO request
+    ) {
+        // Calls the massive transactional method we just built
+        RegisterUserResponseDTO response = authenticationService.registerUser(request);
+
+        // Returns HTTP 200 OK with your success message
+        return ResponseEntity.ok(response);
+    }
+
     @GetMapping("/me")
     public ResponseEntity<FullNameResponseDTO> me(){
         return ResponseEntity.ok(
                 userService.getUserFullName()
         );
     }
+
+
 
 
 }

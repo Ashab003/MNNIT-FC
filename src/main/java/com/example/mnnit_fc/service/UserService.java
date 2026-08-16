@@ -18,7 +18,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public User getUserById(Long id){
+    public User getUserById(String id){
         return userRepository.findById(id).orElseThrow(
                 ()-> new RuntimeException("User not found by registration number : " + id)
         );
@@ -52,7 +52,7 @@ public class UserService {
         );
     }
 
-    public Long getCurrentUserId() {
+    public String getCurrentUserId() {
         return getCurrentUser().getUserId();
     }
 

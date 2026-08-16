@@ -9,13 +9,13 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, String> {
 
     Optional<User> findByEmail(String email);
 
-    Optional<User> findByUserId(Long userId);
+    Optional<User> findByUserId(String userId);
 
-    @Query("SELECT u FROM User u WHERE u.email = :identifier OR CAST(u.userId AS string) = :identifier")
+    @Query("SELECT u FROM User u WHERE u.email = :identifier OR u.userId = :identifier")
     Optional<User> findByEmailOrUserId(@Param("identifier") String identifier);
 
     long countByRole(Role role);

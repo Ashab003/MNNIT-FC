@@ -1,5 +1,8 @@
 package com.example.mnnit_fc.entity;
 
+import com.example.mnnit_fc.enums.Position;
+import com.example.mnnit_fc.enums.PreferredFoot;
+import com.example.mnnit_fc.enums.SquadStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,15 +30,22 @@ public class PlayerProfile {
     @Column(name = "player_name", nullable = false)
     private String playerName;
 
+    @Column(name = "registration_number", unique = true, nullable = false)
+    private String registrationNumber;
+    
+    @Enumerated(EnumType.STRING)
     @Column(name = "squad_status", nullable = false)
-    private String squadStatus; // 'ALUMNI', 'MNNIT_SQUAD', etc.
+    private SquadStatus squadStatus; // 'ALUMNI', 'MNNIT_SQUAD', etc.
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String position;
+    private Position position;
 
-    @Column(name = "preferred_foot")
-    private String preferredFoot;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "preferred_foot", nullable = false)
+    private PreferredFoot preferredFoot;
 
     @Column(name = "jersey_number")
     private Integer jerseyNumber;
+
 }
